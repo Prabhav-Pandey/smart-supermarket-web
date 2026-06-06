@@ -1,16 +1,18 @@
 {
   "name": "smart-supermarket-web",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "description": "Smart Supermarket Management System",
+  "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nodejs",
+    "express",
+    "mysql",
+    "supermarket"
+  ],
+  "author": "Prabhav Pandey",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
