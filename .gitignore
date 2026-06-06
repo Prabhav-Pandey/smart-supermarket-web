@@ -1,0 +1,5 @@
+node_modules/
+*.obj
+*.exe
+.vscode/
+backend_copy/

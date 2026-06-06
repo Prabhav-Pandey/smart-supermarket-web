@@ -1,0 +1,20 @@
+body{
+    font-family:Arial;
+    text-align:center;
+    background:#f4f4f4;
+}
+
+.feedback-box{
+    width:500px;
+    margin:50px auto;
+}
+
+textarea{
+    width:100%;
+    padding:10px;
+}
+
+button{
+    margin-top:10px;
+    padding:10px 20px;
+}

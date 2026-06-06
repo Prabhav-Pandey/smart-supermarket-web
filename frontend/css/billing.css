@@ -1,0 +1,27 @@
+body{
+    font-family:Arial;
+    text-align:center;
+    background:#f8f9fa;
+}
+
+.bill-box{
+    width:400px;
+    margin:50px auto;
+    background:white;
+    padding:20px;
+    box-shadow:0 0 10px gray;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#3498db;
+    color:white;
+    border:none;
+}

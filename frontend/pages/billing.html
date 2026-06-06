@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing System</title>
+    <link rel="stylesheet" href="../css/billing.css">
+</head>
+<body>
+
+<h1>Billing System</h1>
+
+<div class="bill-box">
+
+    <select id="productSelect">
+        <option>Loading Products...</option>
+    </select>
+
+    <input
+        type="number"
+        id="quantity"
+        placeholder="Quantity">
+
+    <button onclick="calculateBill()">
+        Generate Bill
+    </button>
+
+    <h2 id="total">
+        Total: ₹0
+    </h2>
+
+</div>
+
+<script src="../js/billing.js"></script>
+
+</body>
+</html>
