@@ -1,5 +1,13 @@
 node_modules/
-*.obj
-*.exe
 .vscode/
 backend_copy/
+
+*.obj
+*.exe
+
+buildlog.txt
+
+libeay32.dll
+libmysql.dll
+mysqlcppconn.dll
+ssleay32.dll
