@@ -27,6 +27,10 @@
     {
       "source": "/feedback.html",
       "destination": "/pages/feedback.html"
+    },
+    {
+  "source": "/inventory.html",
+  "destination": "/pages/inventory.html"
     }
   ]
 }
