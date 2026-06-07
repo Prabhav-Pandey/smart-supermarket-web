@@ -3,6 +3,26 @@
     {
       "source": "/",
       "destination": "/pages/index.html"
+    },
+    {
+      "source": "/register.html",
+      "destination": "/pages/register.html"
+    },
+    {
+      "source": "/customer-dashboard.html",
+      "destination": "/pages/customer-dashboard.html"
+    },
+    {
+      "source": "/admin-dashboard.html",
+      "destination": "/pages/admin-dashboard.html"
+    },
+    {
+      "source": "/billing.html",
+      "destination": "/pages/billing.html"
+    },
+    {
+      "source": "/feedback.html",
+      "destination": "/pages/feedback.html"
     }
   ]
 }
