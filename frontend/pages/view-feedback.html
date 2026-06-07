@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Customer Feedback</title>
+
+    <link rel="stylesheet"
+          href="../css/customer.css">
+
+</head>
+
+<body>
+
+<h1>Customer Feedback</h1>
+
+<div id="feedbackContainer"
+     class="container">
+
+</div>
+
+<script>
+
+const API_URL =
+"https://smart-supermarket-web.onrender.com";
+
+async function loadFeedback()
+{
+    try
+    {
+        const response =
+        await fetch(
+            `${API_URL}/all-feedback`
+        );
+
+        const data =
+        await response.json();
+
+        let html = "";
+
+        data.forEach(item =>
+        {
+            html += `
+            <div class="card">
+
+                <h2>
+                    Feedback
+                </h2>
+
+                <p>
+                    ${item.customer_feedback}
+                </p>
+
+            </div>
+            `;
+        });
+
+        document.getElementById(
+            "feedbackContainer"
+        ).innerHTML = html;
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+}
+
+loadFeedback();
+
+</script>
+
+</body>
+
+</html>

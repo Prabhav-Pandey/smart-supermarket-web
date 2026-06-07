@@ -56,6 +56,20 @@ app.post("/feedback", (req, res) => {
     );
 });
 
+app.get("/all-feedback", (req, res) => {
+
+    db.query(
+        "SELECT * FROM feedback ORDER BY feedback_id DESC",
+        (err, result) => {
+
+            if (err)
+                return res.status(500).json(err);
+
+            res.json(result);
+        }
+    );
+});
+
 app.post("/register", (req, res) => {
 
     const {
@@ -133,6 +147,8 @@ app.post("/login", (req, res) => {
     );
 });
 
-app.listen(5000, () => {
-    console.log("Server Running On Port 5000");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+    console.log(`Server Running On Port ${PORT}`);
 });
