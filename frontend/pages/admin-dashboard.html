@@ -6,25 +6,48 @@
 </head>
 <body>
 
-<h1>Admin Dashboard</h1>
+<h1>⚙️ Smart Supermarket Admin Dashboard</h1>
 
 <div class="container">
 
-    <button onclick="window.location.href='inventory.html'">
-        View Inventory
-    </button>
+    <div class="card">
+        <h2>📦 Inventory</h2>
+        <p>View product inventory.</p>
 
-    <button onclick="window.location.href='billing.html'">
-        Billing Management
-    </button>
+        <button
+            onclick="window.location.href='inventory.html'">
+            Inventory
+        </button>
+    </div>
 
-    <button onclick="window.location.href='feedback.html?admin=true'">
-        View Feedback
-    </button>
+    <div class="card">
+        <h2>🧾 Billing</h2>
+        <p>Manage customer billing.</p>
 
-    <button onclick="logout()">
-        Logout
-    </button>
+        <button
+            onclick="window.location.href='billing.html'">
+            Billing
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>⭐ Feedback</h2>
+        <p>Review customer feedback.</p>
+
+        <button
+            onclick="window.location.href='feedback.html?admin=true'">
+            View Feedback
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>🚪 Logout</h2>
+        <p>Exit admin panel.</p>
+
+        <button onclick="logout()">
+            Logout
+        </button>
+    </div>
 
 </div>
 
