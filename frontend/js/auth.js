@@ -27,7 +27,7 @@ async function registerUser()
     {
         const response =
             await fetch(
-                "http://localhost:5000/register",
+                "https://smart-supermarket-web.onrender.com/register",
                 {
                     method: "POST",
                     headers:
@@ -74,7 +74,7 @@ async function login()
     {
         const response =
             await fetch(
-                "http://localhost:5000/login",
+                "https://smart-supermarket-web.onrender.com/login",
                 {
                     method: "POST",
                     headers:
@@ -108,7 +108,7 @@ async function login()
         }
         else
         {
-            alert("Invalid Credentials");
+            alert("Invalid Username Or Password");
         }
     }
     catch(error)

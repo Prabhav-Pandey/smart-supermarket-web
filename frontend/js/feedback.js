@@ -13,7 +13,7 @@ async function submitFeedback()
     {
         const response =
             await fetch(
-                "http://localhost:5000/feedback",
+                "https://smart-supermarket-web.onrender.com/feedback",
                 {
                     method: "POST",
                     headers:
