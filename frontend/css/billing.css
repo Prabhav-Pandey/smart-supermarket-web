@@ -1,27 +1,64 @@
 body{
-    font-family:Arial;
+    background:#0f172a;
+    color:white;
+    font-family:'Segoe UI',sans-serif;
+    padding:40px;
+}
+
+.container{
+    max-width:700px;
+
+    margin:auto;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:20px;
+
+    padding:30px;
+}
+
+h1{
     text-align:center;
-    background:#f8f9fa;
+    margin-bottom:25px;
 }
 
-.bill-box{
-    width:400px;
-    margin:50px auto;
-    background:white;
-    padding:20px;
-    box-shadow:0 0 10px gray;
-}
-
+select,
 input{
     width:100%;
-    padding:10px;
-    margin:10px 0;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    border:none;
+
+    border-radius:10px;
 }
 
 button{
     width:100%;
-    padding:10px;
-    background:#3498db;
-    color:white;
+
+    padding:14px;
+
     border:none;
+
+    border-radius:10px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+#total{
+    margin-top:25px;
+
+    font-size:28px;
+
+    text-align:center;
+
+    font-weight:bold;
 }
