@@ -1,58 +1,79 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
     <title>Inventory</title>
-    <link rel="stylesheet" href="../css/customer.css">
+
+    <link rel="stylesheet"
+          href="../css/customer.css">
+
 </head>
+
 <body>
 
 <h1>Product Inventory</h1>
 
-<table border="1" cellpadding="10" cellspacing="0" style="margin:auto;">
-    <tr>
-        <th>Product</th>
-        <th>Price</th>
-        <th>Stock</th>
-    </tr>
+<div id="inventoryContainer"
+     class="container">
 
-    <tr>
-        <td>Rice</td>
-        <td>₹50</td>
-        <td>100</td>
-    </tr>
+</div>
 
-    <tr>
-        <td>Milk</td>
-        <td>₹30</td>
-        <td>50</td>
-    </tr>
+<script>
 
-    <tr>
-        <td>Bread</td>
-        <td>₹25</td>
-        <td>30</td>
-    </tr>
+const API_URL =
+"https://smart-supermarket-web.onrender.com";
 
-    <tr>
-        <td>Sugar</td>
-        <td>₹45</td>
-        <td>80</td>
-    </tr>
+async function loadInventory()
+{
+    try
+    {
+        const response =
+        await fetch(
+            `${API_URL}/products`
+        );
 
-    <tr>
-        <td>Soap</td>
-        <td>₹20</td>
-        <td>100</td>
-    </tr>
-</table>
+        const products =
+        await response.json();
 
-<br>
+        let html = "";
 
-<center>
-    <button onclick="window.history.back()">
-        Back
-    </button>
-</center>
+        products.forEach(product =>
+        {
+            html += `
+            <div class="card">
+
+                <h2>
+                    ${product.product_name}
+                </h2>
+
+                <p>
+                    Product ID :
+                    ${product.product_id}
+                </p>
+
+                <h3>
+                    ₹${product.price}
+                </h3>
+
+            </div>
+            `;
+        });
+
+        document.getElementById(
+            "inventoryContainer"
+        ).innerHTML = html;
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+}
+
+loadInventory();
+
+</script>
 
 </body>
+
 </html>

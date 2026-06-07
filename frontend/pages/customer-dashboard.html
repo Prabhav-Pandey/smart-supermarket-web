@@ -1,30 +1,92 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
     <title>Customer Dashboard</title>
-    <link rel="stylesheet" href="../css/customer.css">
+
+    <link rel="stylesheet"
+          href="../css/customer.css">
+
 </head>
+
 <body>
 
-    <h1>Customer Dashboard</h1>
+<h1>Customer Dashboard</h1>
 
-    <div class="container">
+<div class="container">
 
-        <button onclick="window.location.href='billing.html'">
-            Generate Bill
+    <div class="card">
+
+        <h2>Inventory</h2>
+
+        <p>
+            View available supermarket products.
+        </p>
+
+        <button
+        onclick="
+        window.location.href=
+        'inventory.html'">
+            Open
         </button>
 
-        <button onclick="window.location.href='feedback.html'">
-            Give Feedback
+    </div>
+
+    <div class="card">
+
+        <h2>Billing System</h2>
+
+        <p>
+            Generate bills instantly.
+        </p>
+
+        <button
+        onclick="
+        window.location.href=
+        'billing.html'">
+            Open
         </button>
 
-        <button onclick="logout()">
+    </div>
+
+    <div class="card">
+
+        <h2>Customer Feedback</h2>
+
+        <p>
+            Share your experience.
+        </p>
+
+        <button
+        onclick="
+        window.location.href=
+        'feedback.html'">
+            Open
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Logout</h2>
+
+        <p>
+            Exit the system safely.
+        </p>
+
+        <button
+        onclick="logout()">
             Logout
         </button>
 
     </div>
 
-    <script src="../js/customer.js"></script>
+</div>
+
+<script src="../js/customer.js">
+</script>
 
 </body>
+
 </html>
