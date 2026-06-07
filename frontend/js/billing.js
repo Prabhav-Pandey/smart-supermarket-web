@@ -1,71 +1,91 @@
-let products = [];
+const products = [
+    {
+        product_id: 1,
+        product_name: "Rice",
+        price: 50
+    },
+    {
+        product_id: 2,
+        product_name: "Milk",
+        price: 30
+    },
+    {
+        product_id: 3,
+        product_name: "Bread",
+        price: 25
+    }
+];
 
-async function loadProducts()
+function loadProducts()
 {
-    try
+    let select =
+        document.getElementById(
+            "productSelect"
+        );
+
+    if(!select)
+        return;
+
+    select.innerHTML = "";
+
+    products.forEach(product =>
     {
-        const response =
-            await fetch(
-                "https://smart-supermarket-web.onrender.com/products"
-            );
+        let option =
+            document.createElement("option");
 
-        products = await response.json();
+        option.value =
+            product.product_id;
 
-        let select =
-            document.getElementById("productSelect");
+        option.text =
+            product.product_name +
+            " - ₹" +
+            product.price;
 
-        select.innerHTML = "";
-
-        products.forEach(product =>
-        {
-            let option =
-                document.createElement("option");
-
-            option.value = product.product_id;
-
-            option.text =
-                product.product_name +
-                " - ₹" +
-                product.price;
-
-            select.appendChild(option);
-        });
-    }
-    catch(error)
-    {
-        console.error(error);
-
-        document.getElementById("productSelect").innerHTML =
-            "<option>Error Loading Products</option>";
-    }
+        select.appendChild(option);
+    });
 }
 
 function calculateBill()
 {
     let selectedId =
-        document.getElementById("productSelect").value;
+        document.getElementById(
+            "productSelect"
+        ).value;
 
     let quantity =
         parseInt(
-            document.getElementById("quantity").value
+            document.getElementById(
+                "quantity"
+            ).value
         );
 
-    if(!quantity || quantity <= 0)
+    if(
+        !quantity ||
+        quantity <= 0
+    )
     {
-        alert("Enter Valid Quantity");
+        alert(
+            "Enter Valid Quantity"
+        );
         return;
     }
 
     let product =
         products.find(
-            p => p.product_id == selectedId
+            p =>
+            p.product_id ==
+            selectedId
         );
 
     let total =
-        parseFloat(product.price) * quantity;
+        product.price *
+        quantity;
 
-    document.getElementById("total").innerHTML =
-        "Total: ₹" + total.toFixed(2);
+    document.getElementById(
+        "total"
+    ).innerHTML =
+        "Total: ₹" +
+        total.toFixed(2);
 }
 
 loadProducts();

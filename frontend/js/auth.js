@@ -1,4 +1,4 @@
-async function registerUser()
+function registerUser()
 {
     let name =
         document.getElementById("name").value;
@@ -23,43 +23,22 @@ async function registerUser()
         return;
     }
 
-    try
-    {
-        const response =
-            await fetch(
-                "https://smart-supermarket-web.onrender.com/register",
-                {
-                    method: "POST",
-                    headers:
-                    {
-                        "Content-Type":
-                        "application/json"
-                    },
-                    body: JSON.stringify({
-                        name,
-                        email,
-                        username,
-                        password
-                    })
-                }
-            );
+    localStorage.setItem(
+        "user",
+        JSON.stringify({
+            name,
+            email,
+            username,
+            password
+        })
+    );
 
-        const data =
-            await response.json();
+    alert("Registration Successful");
 
-        alert(data.message);
-
-        window.location.href =
-            "index.html";
-    }
-    catch(error)
-    {
-        console.error(error);
-        alert("Registration Failed");
-    }
+    window.location.href = "/";
 }
 
-async function login()
+function login()
 {
     let username =
         document.getElementById("username").value;
@@ -70,55 +49,45 @@ async function login()
     let role =
         document.getElementById("role").value;
 
-    try
+    if(role === "admin")
     {
-        const response =
-            await fetch(
-                "https://smart-supermarket-web.onrender.com/login",
-                {
-                    method: "POST",
-                    headers:
-                    {
-                        "Content-Type":
-                        "application/json"
-                    },
-                    body: JSON.stringify({
-                        username,
-                        password,
-                        role
-                    })
-                }
-            );
-
-        const data =
-            await response.json();
-
-        if(data.success)
+        if(
+            username === "admin" &&
+            password === "admin123"
+        )
         {
-            if(data.role === "admin")
-            {
-                window.location.href =
-                    "admin-dashboard.html";
-            }
-            else
-            {
-                window.location.href =
-                    "customer-dashboard.html";
-            }
+            window.location.href =
+                "admin-dashboard.html";
         }
         else
         {
-            alert("Invalid Username Or Password");
+            alert("Invalid Admin Credentials");
         }
+
+        return;
     }
-    catch(error)
+
+    let user =
+        JSON.parse(
+            localStorage.getItem("user")
+        );
+
+    if(
+        user &&
+        user.username === username &&
+        user.password === password
+    )
     {
-        console.error(error);
-        alert("Login Failed");
+        window.location.href =
+            "customer-dashboard.html";
+    }
+    else
+    {
+        alert("Invalid Username Or Password");
     }
 }
 
 function logout()
 {
-    window.location.href = "index.html";
+    window.location.href = "/";
 }
