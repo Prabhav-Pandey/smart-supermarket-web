@@ -6,19 +6,28 @@
 </head>
 <body>
 
-<h1>Customer Feedback</h1>
+<h1>Feedback System</h1>
 
 <div class="feedback-box">
 
-    <textarea
-        id="feedback"
-        rows="6"
-        placeholder="Enter Feedback">
-    </textarea>
+    <div id="adminView" style="display:none;">
+        <h2>Customer Feedback Records</h2>
+        <div id="feedbackList"></div>
+    </div>
 
-    <button onclick="submitFeedback()">
-        Submit Feedback
-    </button>
+    <div id="customerView">
+
+        <textarea
+            id="feedback"
+            rows="6"
+            placeholder="Enter Feedback">
+        </textarea>
+
+        <button onclick="submitFeedback()">
+            Submit Feedback
+        </button>
+
+    </div>
 
 </div>
 

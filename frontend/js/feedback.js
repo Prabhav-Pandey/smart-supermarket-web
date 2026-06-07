@@ -1,7 +1,47 @@
-async function submitFeedback()
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+if(params.get("admin") === "true")
+{
+    document.getElementById(
+        "adminView"
+    ).style.display = "block";
+
+    document.getElementById(
+        "customerView"
+    ).style.display = "none";
+
+    let feedbacks =
+        JSON.parse(
+            localStorage.getItem(
+                "feedbacks"
+            )
+        ) || [];
+
+    let html = "";
+
+    feedbacks.forEach(f =>
+    {
+        html +=
+            "<p>• " +
+            f +
+            "</p>";
+    });
+
+    document.getElementById(
+        "feedbackList"
+    ).innerHTML =
+        html || "No Feedback Available";
+}
+
+function submitFeedback()
 {
     let feedback =
-        document.getElementById("feedback").value;
+        document.getElementById(
+            "feedback"
+        ).value;
 
     if(feedback === "")
     {
@@ -9,34 +49,27 @@ async function submitFeedback()
         return;
     }
 
-    try
-    {
-        const response =
-            await fetch(
-                "https://smart-supermarket-web.onrender.com/feedback",
-                {
-                    method: "POST",
-                    headers:
-                    {
-                        "Content-Type":
-                        "application/json"
-                    },
-                    body: JSON.stringify({
-                        feedback: feedback
-                    })
-                }
-            );
+    let feedbacks =
+        JSON.parse(
+            localStorage.getItem(
+                "feedbacks"
+            )
+        ) || [];
 
-        const data =
-            await response.json();
+    feedbacks.push(feedback);
 
-        alert(data.message);
+    localStorage.setItem(
+        "feedbacks",
+        JSON.stringify(
+            feedbacks
+        )
+    );
 
-        document.getElementById("feedback").value = "";
-    }
-    catch(error)
-    {
-        console.error(error);
-        alert("Error Saving Feedback");
-    }
+    alert(
+        "Feedback Submitted"
+    );
+
+    document.getElementById(
+        "feedback"
+    ).value = "";
 }

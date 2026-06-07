@@ -6,25 +6,29 @@
 </head>
 <body>
 
-    <h1>Admin Dashboard</h1>
+<h1>Admin Dashboard</h1>
 
-    <div class="container">
+<div class="container">
 
-        <button onclick="window.location.href='billing.html'">
-            Billing Management
-        </button>
+    <button onclick="window.location.href='inventory.html'">
+        View Inventory
+    </button>
 
-        <button onclick="window.location.href='feedback.html'">
-            View Feedback
-        </button>
+    <button onclick="window.location.href='billing.html'">
+        Billing Management
+    </button>
 
-        <button onclick="logout()">
-            Logout
-        </button>
+    <button onclick="window.location.href='feedback.html?admin=true'">
+        View Feedback
+    </button>
 
-    </div>
+    <button onclick="logout()">
+        Logout
+    </button>
 
-    <script src="../js/admin.js"></script>
+</div>
+
+<script src="../js/admin.js"></script>
 
 </body>
 </html>
