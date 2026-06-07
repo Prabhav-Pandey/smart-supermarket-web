@@ -1,33 +1,39 @@
 const products = [
 
 {
-    product_id: 1,
-    product_name: "Rice",
-    price: 50
+    product_id:1,
+    product_name:"Rice",
+    price:50
 },
 
 {
-    product_id: 2,
-    product_name: "Milk",
-    price: 30
+    product_id:2,
+    product_name:"Milk",
+    price:30
 },
 
 {
-    product_id: 3,
-    product_name: "Bread",
-    price: 25
+    product_id:3,
+    product_name:"Bread",
+    price:25
 },
 
 {
-    product_id: 4,
-    product_name: "Sugar",
-    price: 45
+    product_id:4,
+    product_name:"Sugar",
+    price:45
 },
 
 {
-    product_id: 5,
-    product_name: "Tea",
-    price: 120
+    product_id:5,
+    product_name:"Tea",
+    price:120
+},
+
+{
+    product_id:6,
+    product_name:"Coffee",
+    price:180
 }
 
 ];
@@ -142,16 +148,25 @@ function generateBill()
 {
     if(cart.length === 0)
     {
-        alert(
-            "Cart Empty"
-        );
+        alert("Cart Empty");
         return;
     }
 
     let subtotal = 0;
 
     let receipt =
-        "<h2>Receipt</h2>";
+
+    `
+    <div class="receipt">
+
+    <h2>
+    SMART SUPERMARKET
+    </h2>
+
+    <p style="text-align:center">
+    ------------------------
+    </p>
+    `;
 
     cart.forEach(item =>
     {
@@ -163,12 +178,18 @@ function generateBill()
 
         receipt +=
         `
-        <p>
-        ${item.name}
-        x
-        ${item.quantity}
-        = ₹${amount}
-        </p>
+        <div class="receipt-row">
+
+            <span>
+            ${item.name}
+            x${item.quantity}
+            </span>
+
+            <span>
+            ₹${amount}
+            </span>
+
+        </div>
         `;
     });
 
@@ -182,20 +203,49 @@ function generateBill()
     `
     <hr>
 
-    <p>
-    Subtotal:
-    ₹${subtotal.toFixed(2)}
+    <div class="receipt-row">
+
+        <span>
+        Subtotal
+        </span>
+
+        <span>
+        ₹${subtotal.toFixed(2)}
+        </span>
+
+    </div>
+
+    <div class="receipt-row">
+
+        <span>
+        GST (18%)
+        </span>
+
+        <span>
+        ₹${gst.toFixed(2)}
+        </span>
+
+    </div>
+
+    <hr>
+
+    <div class="receipt-total">
+
+        <span>
+        Grand Total
+        </span>
+
+        <span>
+        ₹${total.toFixed(2)}
+        </span>
+
+    </div>
+
+    <p class="thanks">
+    Thank You For Shopping
     </p>
 
-    <p>
-    GST (18%):
-    ₹${gst.toFixed(2)}
-    </p>
-
-    <h3>
-    Grand Total:
-    ₹${total.toFixed(2)}
-    </h3>
+    </div>
     `;
 
     document.getElementById(

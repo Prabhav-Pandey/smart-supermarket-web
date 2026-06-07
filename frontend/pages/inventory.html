@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Product Inventory</title>
 
     <style>
+
         body{
             background:#0f172a;
             color:white;
@@ -18,6 +20,7 @@
 
         .inventory-grid{
             display:grid;
+
             grid-template-columns:
             repeat(auto-fit,minmax(250px,1fr));
 
@@ -44,10 +47,14 @@
 
         .price{
             color:#60a5fa;
+
             font-size:24px;
+
             font-weight:bold;
         }
+
     </style>
+
 </head>
 
 <body>
@@ -66,37 +73,43 @@ const products = [
 {
     product_id:1,
     product_name:"Rice",
-    price:50
+    price:50,
+    stock:120
 },
 
 {
     product_id:2,
     product_name:"Milk",
-    price:30
+    price:30,
+    stock:80
 },
 
 {
     product_id:3,
     product_name:"Bread",
-    price:25
+    price:25,
+    stock:65
 },
 
 {
     product_id:4,
     product_name:"Sugar",
-    price:45
+    price:45,
+    stock:95
 },
 
 {
     product_id:5,
     product_name:"Tea",
-    price:120
+    price:120,
+    stock:40
 },
 
 {
     product_id:6,
     product_name:"Coffee",
-    price:180
+    price:180,
+    stock:30
 }
 
 ];
@@ -115,6 +128,11 @@ products.forEach(product =>
         <p>
             Product ID :
             ${product.product_id}
+        </p>
+
+        <p>
+            Available Stock :
+            ${product.stock}
         </p>
 
         <div class="price">

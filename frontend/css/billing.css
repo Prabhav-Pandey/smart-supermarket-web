@@ -62,3 +62,51 @@ button:hover{
     background:rgba(255,255,255,0.05);
     border-radius:15px;
 }
+
+.receipt{
+    background:white;
+
+    color:black;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    max-width:500px;
+
+    margin:auto;
+}
+
+.receipt h2{
+    text-align:center;
+
+    margin-bottom:20px;
+}
+
+.receipt-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:8px 0;
+}
+
+.receipt-total{
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-top:15px;
+}
+
+.thanks{
+    text-align:center;
+
+    margin-top:20px;
+
+    font-weight:bold;
+}
