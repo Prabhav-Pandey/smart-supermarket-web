@@ -1,79 +1,135 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <title>Product Inventory</title>
 
-    <title>Inventory</title>
+    <style>
+        body{
+            background:#0f172a;
+            color:white;
+            font-family:'Segoe UI',sans-serif;
+            padding:40px;
+        }
 
-    <link rel="stylesheet"
-          href="../css/customer.css">
+        h1{
+            text-align:center;
+            margin-bottom:40px;
+        }
 
+        .inventory-grid{
+            display:grid;
+            grid-template-columns:
+            repeat(auto-fit,minmax(250px,1fr));
+
+            gap:20px;
+        }
+
+        .card{
+            background:rgba(255,255,255,0.08);
+
+            backdrop-filter:blur(10px);
+
+            border-radius:15px;
+
+            padding:25px;
+
+            text-align:center;
+
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .price{
+            color:#60a5fa;
+            font-size:24px;
+            font-weight:bold;
+        }
+    </style>
 </head>
 
 <body>
 
 <h1>Product Inventory</h1>
 
-<div id="inventoryContainer"
-     class="container">
-
+<div
+    id="inventoryContainer"
+    class="inventory-grid">
 </div>
 
 <script>
 
-const API_URL =
-"https://smart-supermarket-web.onrender.com";
+const products = [
 
-async function loadInventory()
 {
-    try
-    {
-        const response =
-        await fetch(
-            `${API_URL}/products`
-        );
+    product_id:1,
+    product_name:"Rice",
+    price:50
+},
 
-        const products =
-        await response.json();
+{
+    product_id:2,
+    product_name:"Milk",
+    price:30
+},
 
-        let html = "";
+{
+    product_id:3,
+    product_name:"Bread",
+    price:25
+},
 
-        products.forEach(product =>
-        {
-            html += `
-            <div class="card">
+{
+    product_id:4,
+    product_name:"Sugar",
+    price:45
+},
 
-                <h2>
-                    ${product.product_name}
-                </h2>
+{
+    product_id:5,
+    product_name:"Tea",
+    price:120
+},
 
-                <p>
-                    Product ID :
-                    ${product.product_id}
-                </p>
-
-                <h3>
-                    ₹${product.price}
-                </h3>
-
-            </div>
-            `;
-        });
-
-        document.getElementById(
-            "inventoryContainer"
-        ).innerHTML = html;
-    }
-    catch(error)
-    {
-        console.error(error);
-    }
+{
+    product_id:6,
+    product_name:"Coffee",
+    price:180
 }
 
-loadInventory();
+];
+
+let html = "";
+
+products.forEach(product =>
+{
+    html += `
+    <div class="card">
+
+        <h2>
+            ${product.product_name}
+        </h2>
+
+        <p>
+            Product ID :
+            ${product.product_id}
+        </p>
+
+        <div class="price">
+            ₹${product.price}
+        </div>
+
+    </div>
+    `;
+});
+
+document.getElementById(
+    "inventoryContainer"
+).innerHTML = html;
 
 </script>
 
 </body>
-
 </html>

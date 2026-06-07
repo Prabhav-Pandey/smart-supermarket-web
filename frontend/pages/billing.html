@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Billing System</title>
+    <title>Smart Billing System</title>
     <link rel="stylesheet" href="../css/billing.css">
 </head>
+
 <body>
 
-<h1>Billing System</h1>
+<h1>🛒 Smart Billing System</h1>
 
-<div class="bill-box">
+<div class="container">
 
-    <select id="productSelect">
-        <option>Select Product</option>
-    </select>
+    <div class="product-section">
 
-    <input
-        type="number"
-        id="quantity"
-        placeholder="Quantity">
+        <h2>Available Products</h2>
 
-    <button onclick="calculateBill()">
-        Generate Bill
-    </button>
+        <select id="productSelect"></select>
 
-    <hr>
+        <input
+            type="number"
+            id="quantity"
+            placeholder="Enter Quantity">
 
-    <div id="total">
-        No Bill Generated
+        <button onclick="addToCart()">
+            Add To Cart
+        </button>
+
+    </div>
+
+    <div class="cart-section">
+
+        <h2>Shopping Cart</h2>
+
+        <div id="cartItems">
+            No Products Added
+        </div>
+
+        <button onclick="generateBill()">
+            Generate Final Bill
+        </button>
+
+        <div id="billResult"></div>
+
     </div>
 
 </div>

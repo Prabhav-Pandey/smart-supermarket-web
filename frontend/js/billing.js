@@ -1,20 +1,38 @@
 const products = [
-    {
-        product_id: 1,
-        product_name: "Rice",
-        price: 50
-    },
-    {
-        product_id: 2,
-        product_name: "Milk",
-        price: 30
-    },
-    {
-        product_id: 3,
-        product_name: "Bread",
-        price: 25
-    }
+
+{
+    product_id: 1,
+    product_name: "Rice",
+    price: 50
+},
+
+{
+    product_id: 2,
+    product_name: "Milk",
+    price: 30
+},
+
+{
+    product_id: 3,
+    product_name: "Bread",
+    price: 25
+},
+
+{
+    product_id: 4,
+    product_name: "Sugar",
+    price: 45
+},
+
+{
+    product_id: 5,
+    product_name: "Tea",
+    price: 120
+}
+
 ];
+
+let cart = [];
 
 function loadProducts()
 {
@@ -23,15 +41,14 @@ function loadProducts()
             "productSelect"
         );
 
-    if(!select)
-        return;
-
     select.innerHTML = "";
 
     products.forEach(product =>
     {
         let option =
-            document.createElement("option");
+            document.createElement(
+                "option"
+            );
 
         option.value =
             product.product_id;
@@ -45,9 +62,9 @@ function loadProducts()
     });
 }
 
-function calculateBill()
+function addToCart()
 {
-    let selectedId =
+    let productId =
         document.getElementById(
             "productSelect"
         ).value;
@@ -74,18 +91,117 @@ function calculateBill()
         products.find(
             p =>
             p.product_id ==
-            selectedId
+            productId
         );
 
-    let total =
-        product.price *
-        quantity;
+    cart.push({
+        name:
+            product.product_name,
+        price:
+            product.price,
+        quantity:
+            quantity
+    });
+
+    renderCart();
+}
+
+function renderCart()
+{
+    let html = "";
+
+    cart.forEach(item =>
+    {
+        html += `
+        <div class="cart-item">
+
+            <span>
+                ${item.name}
+            </span>
+
+            <span>
+                Qty:
+                ${item.quantity}
+            </span>
+
+            <span>
+                ₹${item.price * item.quantity}
+            </span>
+
+        </div>
+        `;
+    });
 
     document.getElementById(
-        "total"
+        "cartItems"
     ).innerHTML =
-        "Total: ₹" +
-        total.toFixed(2);
+        html;
+}
+
+function generateBill()
+{
+    if(cart.length === 0)
+    {
+        alert(
+            "Cart Empty"
+        );
+        return;
+    }
+
+    let subtotal = 0;
+
+    let receipt =
+        "<h2>Receipt</h2>";
+
+    cart.forEach(item =>
+    {
+        let amount =
+            item.price *
+            item.quantity;
+
+        subtotal += amount;
+
+        receipt +=
+        `
+        <p>
+        ${item.name}
+        x
+        ${item.quantity}
+        = ₹${amount}
+        </p>
+        `;
+    });
+
+    let gst =
+        subtotal * 0.18;
+
+    let total =
+        subtotal + gst;
+
+    receipt +=
+    `
+    <hr>
+
+    <p>
+    Subtotal:
+    ₹${subtotal.toFixed(2)}
+    </p>
+
+    <p>
+    GST (18%):
+    ₹${gst.toFixed(2)}
+    </p>
+
+    <h3>
+    Grand Total:
+    ₹${total.toFixed(2)}
+    </h3>
+    `;
+
+    document.getElementById(
+        "billResult"
+    ).innerHTML =
+        receipt;
 }
 
 loadProducts();

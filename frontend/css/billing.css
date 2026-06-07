@@ -5,60 +5,60 @@ body{
     padding:40px;
 }
 
-.container{
-    max-width:700px;
-
-    margin:auto;
-
-    background:rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:20px;
-
-    padding:30px;
-}
-
 h1{
     text-align:center;
-    margin-bottom:25px;
+    margin-bottom:40px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.product-section,
+.cart-section{
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:20px;
+    margin-bottom:20px;
 }
 
 select,
 input{
     width:100%;
-
     padding:14px;
-
     margin-bottom:15px;
-
     border:none;
-
     border-radius:10px;
 }
 
 button{
     width:100%;
-
     padding:14px;
-
     border:none;
-
     border-radius:10px;
-
     background:#3b82f6;
-
     color:white;
-
     cursor:pointer;
+    font-size:16px;
 }
 
-#total{
+button:hover{
+    background:#2563eb;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    padding:12px;
+    margin-bottom:10px;
+    background:rgba(255,255,255,0.05);
+    border-radius:10px;
+}
+
+#billResult{
     margin-top:25px;
-
-    font-size:28px;
-
-    text-align:center;
-
-    font-weight:bold;
+    padding:20px;
+    background:rgba(255,255,255,0.05);
+    border-radius:15px;
 }
